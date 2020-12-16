@@ -27,3 +27,11 @@ USE AdventureWorks2012
 	and  SafetyStockLevel > 100
 	GROUP BY 
 	SafetyStockLevel
+
+	
+	SELECT Min(ListPrice) MinlistPrice, SafetyStockLevel
+	FROM Production.Product
+	Where --SafetyStockLevel > 100 and  
+	ListPrice > 0
+	GROUP BY 
+	SafetyStockLevel
