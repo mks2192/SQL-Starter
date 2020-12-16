@@ -26,3 +26,11 @@ USE AdventureWorks2012
 		INNER JOIN
 		HumanResources.Department D
 		ON EDH.DepartmentID = D.DepartmentID
+		INNER JOIN HumanResources.Shift S
+		ON EDH.ShiftID = S.ShiftID
+		WHERE 
+		D.Name = 'Engineering'
+		and
+		S.Name = 'Day'
+		and E.HireDate > '2008-01-01'
+
