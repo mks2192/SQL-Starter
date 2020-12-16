@@ -17,4 +17,13 @@ USE AdventureWorks2012
 	SELECT Sum(ListPrice) FROM Production.Product
 
 	SELECT Avg(ListPrice) FROM Production.Product
-	
+
+
+-- Group By
+
+	SELECT count(*) CountOfRecords, SafetyStockLevel
+	FROM Production.Product
+	Where (ProductNumber  Like 'B%' or ProductNumber  Like 'C%' )
+	and  SafetyStockLevel > 100
+	GROUP BY 
+	SafetyStockLevel
