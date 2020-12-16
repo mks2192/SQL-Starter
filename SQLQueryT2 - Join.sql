@@ -34,3 +34,16 @@ USE AdventureWorks2012
 		S.Name = 'Day'
 		and E.HireDate > '2008-01-01'
 
+-- Left and Right Join
+
+		SELECT * FROM Production.Product P
+		LEFT JOIN -- same as left outer join
+		Production.ProductModel PM
+		ON
+		P.ProductModelID = PM.ProductModelID
+
+		SELECT * FROM Production.Product P
+		RIGHT JOIN -- same as left outer join
+		Production.ProductModel PM
+		ON
+		P.ProductModelID = PM.ProductModelID
