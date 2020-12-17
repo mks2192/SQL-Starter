@@ -64,3 +64,11 @@ WHERE MiddleName IS NULL
 INTERSECT
 SELECT FirstName, MiddleName, LastName FROM Person.Person
 WHERE MiddleName IS NULL
+
+
+
+SELECT FirstName, LastName FROM Person.Person
+WHERE FirstName LIKE 'A%'
+EXCEPT 
+SELECT FirstName, LastName FROM Person.Person
+WHERE LastName LIKE 'A%'
