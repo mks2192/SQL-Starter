@@ -63,3 +63,31 @@ USE AdventureWorks2012
 
 		SELECT * FROM Person.Person
 		WHERE MiddleName is Not NuLL
+
+-- WHERE, GROUP BY, HAVING
+
+-- 1. WHERE clause specifies search conditions for the rows returned by the Query and limits rows to a meaningful set.
+
+-- 2. GROUP BY clause works on the rows returned by the previous step #1. This clause summaries identical rows into a single/distinct group and returns a single row with the summary for each group, by using appropriate Aggregate function in the SELECT list, like COUNT(), SUM(), MIN(), MAX(), AVG(), etc.
+
+-- 3. HAVING clause works as a Filter on top of the Grouped rows returned by the previous step #2. This clause cannot be replaced by a WHERE clause and vice-versa.
+
+-- As these clauses are optional thus a minimal SQL Query looks like this:
+--
+
+	SELECT count(*) CountOfRecords, SafetyStockLevel
+	FROM Production.Product
+	Where (ProductNumber  Like 'B%' or ProductNumber  Like 'C%' )
+	and  SafetyStockLevel > 100
+	GROUP BY 
+	SafetyStockLevel
+	HAVING SafetyStockLevel = 500
+
+
+	SELECT count(*) CountOfRecords, count(ProductNumber) CountOfRecordsPN,  SafetyStockLevel
+	FROM Production.Product
+	Where (ProductNumber  Like 'B%' or ProductNumber  Like 'C%' )
+	and  SafetyStockLevel > 100
+	GROUP BY 
+	SafetyStockLevel
+	HAVING count(ProductNumber) = 3 OR SafetyStockLevel = 500 OR count(*) = 6
