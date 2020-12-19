@@ -84,10 +84,10 @@ USE AdventureWorks2012
 	HAVING SafetyStockLevel = 500
 
 
-	SELECT count(*) CountOfRecords, count(ProductNumber) CountOfRecordsPN,  SafetyStockLevel
+	SELECT count(*) as CountOfRecords, count(ProductNumber) as CountOfRecordsPN,  SafetyStockLevel
 	FROM Production.Product
 	Where (ProductNumber  Like 'B%' or ProductNumber  Like 'C%' )
 	and  SafetyStockLevel > 100
 	GROUP BY 
 	SafetyStockLevel
-	HAVING count(ProductNumber) = 3 OR SafetyStockLevel = 500 OR count(*) = 6
+	HAVING count(ProductNumber) = 3 OR SafetyStockLevel = 500 OR count(*) = 6 
