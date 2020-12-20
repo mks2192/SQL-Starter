@@ -1,0 +1,16 @@
+-- AdventureWorks (OLTP) full database backups
+-- https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks
+-- AdventureWorks2012.bak
+
+
+SELECT * FROM Sales.SalesOrderDetail
+
+
+WITH CTE as (
+SELECT DISTINCT ProductID, LineTotal,
+DENSE_RANK() OVER (Partition By ProductID ORDER BY LineTotal) as RANK_DETAILS
+ FROM Sales.SalesOrderDetail
+ )
+ SELECT  * FROM CTE
+ WHERE RANK_DETAILS = 2
+ --WHERE RANK_DETAILS = 2
