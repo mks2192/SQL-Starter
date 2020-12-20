@@ -3,14 +3,15 @@
 -- AdventureWorks2012.bak
 
 
-SELECT * FROM Sales.SalesOrderDetail
+SELECT * FROM Sales.SalesOrderDetail;
 
 
 WITH CTE as (
 SELECT DISTINCT ProductID, LineTotal,
-DENSE_RANK() OVER (Partition By ProductID ORDER BY LineTotal) as RANK_DETAILS
+DENSE_RANK() OVER (PARTITION BY ProductID ORDER BY LineTotal) as RANK_DETAILS
  FROM Sales.SalesOrderDetail
  )
  SELECT  * FROM CTE
  WHERE RANK_DETAILS = 2
+ ORDER BY ProductID
  --WHERE RANK_DETAILS = 2
