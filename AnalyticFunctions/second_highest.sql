@@ -8,7 +8,7 @@ SELECT * FROM Sales.SalesOrderDetail;
 
 WITH CTE as (
 SELECT DISTINCT ProductID, LineTotal,
-DENSE_RANK() OVER (PARTITION BY ProductID ORDER BY LineTotal) as RANK_DETAILS
+DENSE_RANK() OVER (PARTITION BY ProductID ORDER BY LineTotal DESC) as RANK_DETAILS
  FROM Sales.SalesOrderDetail
  )
  SELECT  * FROM CTE
