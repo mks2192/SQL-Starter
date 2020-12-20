@@ -19,6 +19,7 @@ SELECT w.row as 'current row',
 FROM W as w;
 
 
+
 WITH CTE as (
 SELECT w.row as 'current row',
 		w.a,
